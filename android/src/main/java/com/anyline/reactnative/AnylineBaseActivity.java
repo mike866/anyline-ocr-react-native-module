@@ -1,12 +1,11 @@
 /*
- * Anyline Cordova Plugin
+ * Anyline React-Native Plugin
  * AnylineBaseActivity.java
  *
- * Copyright (c) 2015 9yards GmbH
+ * Copyright (c) 2017 9yards GmbH
  *
- * Created by martin at 2015-12-09
  */
-package eon.react.prototype;
+package com.anyline.reactnative;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -56,6 +55,7 @@ public abstract class AnylineBaseActivity extends Activity
     }
 
     protected void finishWithError(String errorMessage) {
+
         Intent data = new Intent();
         data.putExtra(AnylineSDKPlugin.EXTRA_ERROR_MESSAGE, errorMessage);
         setResult(AnylineSDKPlugin.RESULT_ERROR, data);
@@ -71,5 +71,13 @@ public abstract class AnylineBaseActivity extends Activity
     public void onCameraError(Exception e) {
         finishWithError("error_accessing_camera");
     }
+
+
+    @Override
+    public void onBackPressed() {
+        ResultReporter.onCancel();
+        super.onBackPressed();
+    }
+
 
 }

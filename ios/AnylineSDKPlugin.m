@@ -71,7 +71,7 @@ RCT_EXPORT_METHOD(setupScanViewWithConfigJson:(NSString *)config scanMode:(NSStr
 }
 
 -(void)anylineBaseScanViewController:(AnylineBaseScanViewController *)baseScanViewController didStopScanning:(id)sender {
-  self.onCancelCallback();
+  self.onCancelCallback(nil);
 }
 
 #pragma mark - Utility Funcitons
